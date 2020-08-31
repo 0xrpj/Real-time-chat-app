@@ -218,7 +218,4 @@ textarea {
     min-height: initial;
     height: 100%;
   }
-  .message__area {
-    height: 400px;
-  }
 }
