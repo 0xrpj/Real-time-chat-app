@@ -215,6 +215,7 @@ textarea {
     width: 200%;
   }
   body {
-    min-height: 200vh;
+    min-height: initial;
+    height: 100%;
   }
 }
