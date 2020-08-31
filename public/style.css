@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f8f8f8;
+  font-family: "Roboto", sans-serif;
+}
+
+section.chat__section {
+  width: 800px;
+  max-width: 90%;
+  background: #fff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.brand {
+  padding: 10px;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+}
+
+.brand h1 {
+  margin-left: 10px;
+  font-size: 25px;
+  font-weight: 100;
+  color: #444;
+  align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+#online-status {
+  cursor: pointer;
+}
+
+.message__area {
+  height: 500px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-top: 40px;
+}
+
+.send-message {
+  display: flex;
+}
+
+.send-button {
+  width: 20%;
+  color: black;
+  background: white;
+  cursor: pointer;
+  border: 1px solid #8f8be8;
+  text-transform: uppercase;
+  box-shadow: -3px 3px #8f8be8, -2px 2px #8f8be8, -1px 1px #8f8be8;
+}
+
+textarea {
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+  outline: none;
+  background: #fbfbfb;
+  font-family: "Roboto", sans-serif;
+  resize: none;
+}
+
+.message {
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 45px;
+  max-width: 300px;
+  position: relative;
+}
+
+.incoming {
+  background: #8f8be8;
+  color: #fff;
+  margin-right: auto;
+}
+
+.outgoing {
+  background: #e9eafd;
+  color: #787986;
+  margin-left: auto;
+}
+
+.connected {
+  color: #787986;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.message h4 {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  color: #333;
+  font-size: 14px;
+}
+
+/* modal */
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  animation: fadeIn linear 0.2s;
+  -webkit-animation: fadeIn linear 0.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 360px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.online-peeps {
+  padding: 20px;
+  line-height: 2;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 545px) {
+  .send-button {
+    box-shadow: none;
+    width: 100%;
+  }
+  textarea {
+    width: 75%;
+  }
+}

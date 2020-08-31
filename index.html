@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Roshan Parajuli :)</title>
+  </head>
+  <body>
+    <section class="chat__section">
+      <div class="brand">
+        <img width="50px" src="img/icon.png" alt="" id="online-status" />
+        <h1>Parewa</h1>
+      </div>
+
+      <div class="message__area">
+        <div class="connected">
+          <p>
+            Welcome to Parewa where you can chat with random people anonymously.
+            <br /><br />
+            <em>Click the logo to see who is currently online.</em><br /><br />
+            Remember to keep the community civil. <br /><br />Thanks, Roshan.
+          </p>
+        </div>
+      </div>
+      <div class="send-message">
+        <textarea
+          id="textarea"
+          cols="30"
+          rows="1"
+          placeholder="Write a message"
+        ></textarea>
+        <button class="send-button">Send</button>
+      </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        These people are online:
+        <span class="close">&times;</span>
+        <div class="online-peeps"></div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+    <script src="/extras.js"></script>
+  </body>
+</html>
