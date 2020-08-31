@@ -10,7 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 150vh;
+  min-height: 100vh;
   background: #f8f8f8;
   font-family: "Roboto", sans-serif;
 }
