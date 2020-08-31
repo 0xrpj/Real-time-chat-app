@@ -214,4 +214,7 @@ textarea {
   textarea {
     width: 200%;
   }
+  body {
+    min-height: 200vh;
+  }
 }
