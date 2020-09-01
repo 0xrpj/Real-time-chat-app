@@ -20,6 +20,15 @@ const users = {};
 
 io.on("connection", (socket) => {
 
+    var address = socket.handshake.address;
+    // console.log('New connection from ' + address.address + ':' + address.port);
+    console.log("========")
+    // console.log(socket);
+    var socketId = socket.id;
+    var clientIp = socket.request.connection.remoteAddress;
+
+    console.log(clientIp);
+
     socket.on("user-joined", (name) => {
         users[socket.id] = name;
         socket.broadcast.emit("user-joined", name.nameOfUser);

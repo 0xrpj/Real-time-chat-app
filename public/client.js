@@ -29,7 +29,7 @@ sendBtn.addEventListener("click", (e) => {
 
 
 bancheck = () => {
-    var bad_words = new Array("fuck", "condom", "lado", "puti", "valu", "laura", "machikne", "muji", "bhenchod", "bhalu");
+    var bad_words = new Array("fuck", "condom", "lado", "puti", "valu", "laura", "machikne", "muji", "bhenchod", "bhalu", "gand", "gandu", "madarch");
     var check_text = textarea.value;
     var error = 0;
     for (var i = 0; i < bad_words.length; i++) {
@@ -138,3 +138,8 @@ function scrollToBottom() {
     messageArea.scrollTop = messageArea.scrollHeight;
 }
 
+function ban() {
+    if (textarea.value.contains(":ban:")) {
+        console.log("Ban");
+    }
+}
