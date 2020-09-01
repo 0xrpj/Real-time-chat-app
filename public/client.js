@@ -18,14 +18,35 @@ do {
 
 textarea.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
-        sendMessage(e.target.value);
+        bancheck();
     }
 })
 
+
 sendBtn.addEventListener("click", (e) => {
-    sendMessage(textarea.value);
+    bancheck();
 })
 
+
+bancheck = () => {
+    var bad_words = new Array("fuck", "condom", "lado", "puti", "valu", "laura", "machikne", "muji", "bhenchod", "bhalu");
+    var check_text = textarea.value;
+    var error = 0;
+    for (var i = 0; i < bad_words.length; i++) {
+        var val = bad_words[i];
+        if (check_text.toLowerCase().replace(/\s/g, '').indexOf(val.toString()) > -1) {
+            error = error + 1;
+        }
+    }
+
+    if (error > 0) {
+        textarea.value = "";
+        window.open("disconnect.html", '_self');
+
+    } else {
+        sendMessage(check_text);
+    }
+}
 
 function sendMessage(message) {
     if (message.trim() === "") {
@@ -70,18 +91,21 @@ socket.on("message", (msg) => {
 
 //New user joined
 socket.on("user-joined", (name) => {
-    let connectedDiv = document.createElement("div");
-    connectedDiv.classList.add("connected");
+    if (name !== null) {
+        let connectedDiv = document.createElement("div");
+        connectedDiv.classList.add("connected");
 
-    let markup = `
-    <p>${name} joined</p>
-    `
-    connectedDiv.innerHTML = markup;
-    messageArea.appendChild(connectedDiv);
+        let markup = `
+        <p>${name} joined</p>
+        `
+        connectedDiv.innerHTML = markup;
+        messageArea.appendChild(connectedDiv);
 
-    audio.play();
-    scrollToBottom()
-    // socket.broadcast.emit("message", msg);
+        audio.play();
+        scrollToBottom()
+        // socket.broadcast.emit("message", msg);
+    }
+
 })
 
 socket.on("user-disconnected", (name) => {
