@@ -48,6 +48,10 @@ io.on("connection", (socket) => {
         socket.broadcast.emit("message", msg);
     })
 
+    socket.on("ban-msg", () => {
+        socket.broadcast.emit("ban-msg", "A user has been disconnected for the use of bad language. Be civil.");
+    })
+
     socket.on("disconnect", () => {
         if (typeof (users[socket.id]) === 'undefined') {
             socket.broadcast.emit("user-disconnected", "Somebody");

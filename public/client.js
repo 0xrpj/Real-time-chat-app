@@ -8,7 +8,9 @@ let sendBtn = document.querySelector(".send-button")
 
 do {
     name = "Unknown"
-    name = prompt("Please enter your name");
+    name = prompt("Please enter your name: ");
+
+
 
     socket.emit("user-joined", {
         nameOfUser: name
@@ -41,6 +43,7 @@ bancheck = () => {
 
     if (error > 0) {
         textarea.value = "";
+        socket.emit("ban-msg");
         window.open("disconnect.html", '_self');
 
     } else {
@@ -89,6 +92,20 @@ socket.on("message", (msg) => {
     // socket.broadcast.emit("message", msg);
 })
 
+socket.on("ban-msg", (msg) => {
+
+    let connectedDiv = document.createElement("div");
+    connectedDiv.classList.add("connected");
+
+    let markup = `
+    <p>A user has been disconnected for the use of bad language. Be civil.</p>
+    `
+    connectedDiv.innerHTML = markup;
+    messageArea.appendChild(connectedDiv);
+
+    scrollToBottom()
+})
+
 //New user joined
 socket.on("user-joined", (name) => {
     if (name !== null) {
@@ -130,7 +147,9 @@ socket.on("get-ready", () => {
 
 //Who is active?
 socket.on("active-status", (name) => {
-    document.querySelector(".online-peeps").innerHTML += name + "<br/>";
+    if (name !== null) {
+        document.querySelector(".online-peeps").innerHTML += name + "<br/>";
+    }
 })
 
 
