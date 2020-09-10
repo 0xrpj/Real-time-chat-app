@@ -31,7 +31,7 @@ sendBtn.addEventListener("click", (e) => {
 
 
 bancheck = () => {
-    var bad_words = new Array("fuck", "condom", "lado", "puti", "valu", "laura", "machikne", "muji", "bhenchod", "bhalu", "gand", "gandu", "madarch");
+    var bad_words = new Array("fuck", "bitch","faggot");
     var check_text = textarea.value;
     var error = 0;
     for (var i = 0; i < bad_words.length; i++) {
